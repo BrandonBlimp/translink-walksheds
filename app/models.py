@@ -52,6 +52,9 @@ class Route(models.Model):
     route_color = models.CharField(max_length=6, default="FFFFFF", blank=True)
     route_text_color = models.CharField(max_length=6, default="000000", blank=True)
 
+    def __str__(self):
+        return ",".join([str(self.route_id), self.route_short_name, self.route_long_name])
+
 
 class Shape(models.Model):
     shape_id = models.CharField(max_length=20)
@@ -59,6 +62,9 @@ class Shape(models.Model):
     shape_pt_lon = models.DecimalField(max_digits=9, decimal_places=6)
     shape_pt_sequence = models.PositiveIntegerField()
     shape_dist_traveled = models.FloatField()
+
+    def __str__(self):
+        return ",".join([self.shape_id, str(self.shape_pt_lat), str(self.shape_pt_lon)])
 
 
 class Trip(models.Model):
