@@ -121,6 +121,7 @@ def import_trips():
         import_print_helper(time_start, "trips.txt")
         bulk_create(trips, Trip)
 
+
 # takes two arguments:
 #   1. a list (containing objects of the same Django Model)
 #   2. a reference to the model class itself
