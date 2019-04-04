@@ -104,7 +104,7 @@ class Trip(models.Model):
     def __str__(self):
         return ",".join([self.trip_id, self.trip_headsign])
 
-class StopTimes(models.Model):
+class StopTime(models.Model):
     PICKUP_TYPE_REGULAR = 0
     PICKUP_TYPE_NONE = 1
     PICUKP_TYPE_PHONE_REQUEST = 2
