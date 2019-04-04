@@ -92,16 +92,17 @@ class Trip(models.Model):
     )
 
     trip_id = models.CharField(max_length=20, primary_key=True)
-    route_id = models.ForeignKey(Route, on_delete=models.CASCADE)
+    route = models.ForeignKey(Route, on_delete=models.CASCADE)
     service_id = models.CharField(max_length=10)
     trip_headsign = models.CharField(max_length=100, blank=True)
     direction_id = models.IntegerField(choices=DIRECTION_ID_CHOICES)
     block_id = models.CharField(max_length=100, blank=True)
-    shape_id = models.ForeignKey(Shape, on_delete=models.SET_NULL, null=True)
+    shape_id = models.CharField(max_length=20, blank=True, null=True)
     wheelchair_accessible = models.IntegerField(choices=WHEELCHAIR_ACCESSIBLE_CHOICES, default=0, blank=True,)
-    direction_id = models.IntegerField(choices=DIRECTION_ID_CHOICES)
     bikes_allowed = models.IntegerField(choices=BIKES_ALLOWED_CHOICES, default=0, blank=True)
 
+    def __str__(self):
+        return ",".join([self.trip_id, self.trip_headsign])
 
 class StopTimes(models.Model):
     PICKUP_TYPE_REGULAR = 0
@@ -136,3 +137,5 @@ class StopTimes(models.Model):
     drop_off_type = models.IntegerField(choices=DROPOFF_TYPE_CHOICES, default=PICKUP_TYPE_REGULAR, blank=True)
     shape_dist_traveled = models.FloatField(blank=True)
 
+    def __str__(self):
+        return ",".join([self.stop_headsign])
