@@ -134,6 +134,7 @@ def bulk_create(models, model_class):
     time_elapsed = time_finish - time_start
     print("%s: bulk_create inserted %s objects and took %s" % (time_finish, len(result), time_elapsed))
 
+
 def import_print_helper(t_start, file_str):
     t_now = datetime.datetime.now()
     print("%s: %s import completed after %s" % (t_now, file_str, t_now - t_start))
