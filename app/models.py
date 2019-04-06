@@ -127,15 +127,20 @@ class StopTime(models.Model):
         (DROPOFF_TYPE_DRIVER_COORD, "Coordinate with driver to arrange drop off")
     )
 
-    trip_id = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    # TODO: figure out a fast way to take better advantage of Djano ORM using the commented line below.
+    #       The problem is that when I import the data, I have to do a database access for EVERY StopTime
+    #       entry if I want to use ForeignKey
+    # trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    trip_id = models.CharField(max_length=20)
     arrival_time = models.DurationField()
     departure_time = models.DurationField()
-    stop_id = models.ForeignKey(Stop, on_delete=models.CASCADE)
+    stop_id = models.IntegerField()
+    # stop = models.ForeignKey(Stop, on_delete=models.CASCADE)
     stop_sequence = models.PositiveIntegerField()
     stop_headsign = models.CharField(max_length=100, blank=True)
     pickup_type = models.IntegerField(choices=PICKUP_TYPE_CHOICES, default=PICKUP_TYPE_REGULAR, blank=True)
     drop_off_type = models.IntegerField(choices=DROPOFF_TYPE_CHOICES, default=PICKUP_TYPE_REGULAR, blank=True)
-    shape_dist_traveled = models.FloatField(blank=True)
+    shape_dist_traveled = models.FloatField(blank=True, null=True)
 
     def __str__(self):
-        return ",".join([self.stop_headsign])
+        return ",".join([self.trip_id, str(self.arrival_time), str(self.departure_time)])
