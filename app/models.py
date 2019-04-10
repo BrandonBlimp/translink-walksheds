@@ -22,7 +22,7 @@ class Stop(models.Model):
     location_type = models.IntegerField(choices=LOCATION_TYPE_CHOICES, blank=True, null=True)
 
     def __str__(self):
-        return ",".join([str(self.stop_id), self.stop_name])
+        return ",".join([str(self.stop_id), self.stop_code, self.stop_name])
 
 class Route(models.Model):
     ROUTE_TYPE_LRT = 0
