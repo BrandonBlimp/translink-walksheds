@@ -5,9 +5,9 @@ from .models import Route
 
 # Create your views here.
 def index(request):
-    random_list = Route.objects.all()
+    route_list = Route.objects.all()
     template = loader.get_template('app/index.html')
     context = {
-        'random_list': random_list
+        'route_list': route_list
     }
     return HttpResponse(template.render(context, request))

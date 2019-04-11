@@ -31,10 +31,11 @@
                                 Select a route
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">41-Crown</a>
-                                <a class="dropdown-item" href="#">41-UBC</a>
-                                <a class="dropdown-item" href="#">Millenium Line</a>
-                                <a class="dropdown-item" href="#">Seabus</a>
+                                {% if route_list %}
+                                {% for route in route_list %}
+                                    <a class="dropdown-item" href="#">{{ route.route_id }}, {{ route.route_short_name }}, {{ route.route_long_name }}</a>
+                                {% endfor %}
+                                {% endif %}
                             </div>
                     </div>
                 </div>
