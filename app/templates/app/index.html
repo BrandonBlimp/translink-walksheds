@@ -30,14 +30,21 @@
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Select a route
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                {% if route_list %}
-                                {% for route in route_list %}
-                                    <a class="dropdown-item" href="#">{{ route.route_id }}, {{ route.route_short_name }}, {{ route.route_long_name }}</a>
+                            <div class="dropdown-menu pre-scrollable" id="routeSelector" aria-labelledby="dropdownMenuButton">
+                                {% if routes %}
+                                {% for route in routes %}
+                                    <a class="dropdown-item" href="#">{{ route.route_short_name }}, {{ route.route_long_name }}</a>
                                 {% endfor %}
                                 {% endif %}
                             </div>
                     </div>
+                    {% if selected_route %}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="tripsMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select a trip
+                            </button>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -64,5 +71,8 @@
     <!-- Google Maps API -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3D_AfRO6iv4WXnLonaVIxdfRW9vVVeb4&callback=initMap"
     type="text/javascript"></script>
+
+    <!-- main app -->
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

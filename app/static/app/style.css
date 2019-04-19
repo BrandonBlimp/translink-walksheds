@@ -5,15 +5,20 @@
     overflow: hidden;
 }
 #sidebar {
-    width: 20em;
+    width: 27%;
     height: 100%;
     fill: aqua;
     color: aqua;
     z-index: 10;
     float: right;
+    overflow: hidden;
 }
 #div-main {
     height: 100%;
+}
+
+#dropdownMenuButton {
+    width: 100%;
 }
 
 .container {
@@ -22,6 +27,12 @@
 
 .container .dropdown {
     text-align: center;
+}
+
+.dropdown-menu.pre-scrollable {
+    max-height: 75vh;
+    max-width: 100%;
+    position: inherit;
 }
 
 /* Optional: Makes the sample page fill the window. */
