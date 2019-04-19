@@ -21,6 +21,7 @@ from api import views
 router = routers.DefaultRouter()
 router.register(r'routes', views.RouteViewSet)
 router.register(r'trips', views.TripViewSet)
+router.register(r'shapes', views.ShapeViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
