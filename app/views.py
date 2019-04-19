@@ -7,7 +7,7 @@ from .models import Route, Trip
 def index(request):
     routes = Route.objects.order_by('route_short_name')
     selected_route = None
-    trip_headsigns = Trip.objects.values_list('trip_headsign', flat=True).distinct()
+    trip_headsigns = Trip.objects.order_by('trip_headsign').values_list('trip_headsign', flat=True).distinct()
     template = loader.get_template('app/index.html')
     context = {
         'routes': routes,

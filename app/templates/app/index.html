@@ -31,9 +31,9 @@
                                 Select a route
                             </button>
                             <div class="dropdown-menu pre-scrollable" id="routeSelector" aria-labelledby="dropdownMenuButton">
-                                {% if routes %}
-                                {% for route in routes %}
-                                    <a class="dropdown-item" href="#">{{ route.route_short_name }}, {{ route.route_long_name }}</a>
+                                {% if trip_headsigns %}
+                                {% for trip in trip_headsigns %}
+                                    <a class="dropdown-item" href="#">{{ trip }}</a>
                                 {% endfor %}
                                 {% endif %}
                             </div>
