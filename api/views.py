@@ -12,6 +12,7 @@ class RouteViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Route.objects.order_by('route_short_name')
     serializer_class = RouteSerializer
+    filterset_fields = ('route_id',)
 
 
 class TripViewSet(viewsets.ReadOnlyModelViewSet):

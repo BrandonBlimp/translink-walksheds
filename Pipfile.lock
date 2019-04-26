@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0c405f69ac50e676426d814fb0725bf907828616a933c8a32ffd4311adf23f45"
+            "sha256": "ee8eadaf0525854578d2b8a895556e1473fda0d21c718d2bf8837d178fe44e39"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -44,6 +44,14 @@
                 "sha256:a2814bffd1f007805b19194eb0b9a331933b82bd5da1c3ba3d7b7ba16e06dc4b"
             ],
             "version": "==2.2"
+        },
+        "django-filter": {
+            "hashes": [
+                "sha256:3dafb7d2810790498895c22a1f31b2375795910680ac9c1432821cbedb1e176d",
+                "sha256:a3014de317bef0cd43075a0f08dfa1d319a7ccc5733c3901fb860da70b0dda68"
+            ],
+            "index": "pypi",
+            "version": "==2.1.0"
         },
         "django-heroku": {
             "hashes": [
@@ -142,11 +150,11 @@
         },
         "pylint-django": {
             "hashes": [
-                "sha256:6949f790249d10f95f34e7bc1673ad4570c30bc5dcbd843eab99493b2e04079b",
-                "sha256:befb69b47843ffd8a0af7b0f7555d819f5b2dab425b4f07ed229cc2dbf01ad94"
+                "sha256:c0562562bffbdc97a26d007d818231348633282bec66ba445540a036a0ae76f5",
+                "sha256:e4abeef83f6f6577951ca0b2d12f73fc0c53dd33272fee4982c8cb42e4ae64ad"
             ],
             "index": "pypi",
-            "version": "==2.0.8"
+            "version": "==2.0.9"
         },
         "pylint-plugin-utils": {
             "hashes": [
