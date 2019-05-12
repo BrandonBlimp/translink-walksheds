@@ -21,6 +21,7 @@ class TripViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
+    filterset_fields = ('route__route_id',)
 
 class ShapeViewSet(viewsets.ReadOnlyModelViewSet):
     """
