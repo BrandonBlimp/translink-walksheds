@@ -25,10 +25,10 @@ class TripSerializer(serializers.ModelSerializer):
             'service_id',
             'trip_headsign',
             'direction_id',
-            'block_id',
-            'shape_id',
-            'wheelchair_accessible',
-            'bikes_allowed'
+            # 'block_id',
+            'shape_id'
+            # 'wheelchair_accessible',
+            # 'bikes_allowed'
         )
 
 class ShapeSerializer(serializers.ModelSerializer):
