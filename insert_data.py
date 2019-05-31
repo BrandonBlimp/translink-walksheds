@@ -151,18 +151,22 @@ def import_stoptimes():
             for row in reader
         ]
         import_print_helper(time_start, "stop_times.txt")
-        bulk_create(stoptimes, StopTime)
+        bulk_create(stoptimes, StopTime, 10000)
         # bulk_create(stoptimes, StopTime)
 
 
-# takes two arguments:
+# takes three arguments:
 #   1. a list (containing objects of the same Django Model)
 #   2. a reference to the model class itself
-def bulk_create(models, model_class):
+#   3. (optional) size of batches, an int
+def bulk_create(models, model_class, batch_size=None):
     time_start = datetime.now()
     print("%s: start bulk_create" % time_start)
 
-    result = model_class.objects.bulk_create(models)
+    if (batch_size):
+        result = model_class.objects.bulk_create(models, batch_size)
+    else:
+        result = model_class.objects.bulk_create(models)
 
     time_finish = datetime.now()
     time_elapsed = time_finish - time_start
