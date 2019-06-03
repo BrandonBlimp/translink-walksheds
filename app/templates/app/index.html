@@ -38,19 +38,13 @@
                                 {% endif %}
                             </div>
                     </div>
-                    <div>
-                        <button class="btn btn-secondary dropdown-toggle dropdownMenuButton" disabled type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Select a direction
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle dropdownMenuButton" disabled type="button" id="destSelectorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select a destination
                         </button>
+                        <div class="dropdown-menu pre-scrollable" id="destSelector" aria-labelledby="dropdownMenuButton"></div>
                     </div>
 
-                    {% if selected_route %}
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="tripsMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Select a trip
-                            </button>
-                        </div>
-                    {% endif %}
                 </div>
             </div>
         </div>

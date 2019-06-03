@@ -32,6 +32,7 @@
 .dropdown-menu.pre-scrollable {
     max-height: 75vh;
     max-width: 100%;
+    width: 100%;
     position: inherit;
 }
 
