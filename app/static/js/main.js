@@ -17,7 +17,7 @@ function changeRoute () {
         dataType: "json",
         context: this,
         success: function (response) {
-            changeDestinations(response);
+            loadDestinations(response);
         },
         error: function () {
             alert("oops");
@@ -25,7 +25,7 @@ function changeRoute () {
     });
 }
 
-function changeDestinations (response) {
+function loadDestinations (response) {
     $('#destSelectorButton').prop('disabled', false);
     $('#destSelector').empty();
 
