@@ -38,5 +38,7 @@ class ShapeViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows trips to be viewed or edited.
     """
-    queryset = Shape.objects.all()
+    queryset = Shape.objects.all().order_by("shape_pt_sequence")
     serializer_class = ShapeSerializer
+    pagination_class = None
+    filterset_fields = ('shape_id',)
