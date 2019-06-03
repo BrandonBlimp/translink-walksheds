@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col">
                     <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btn-secondary dropdown-toggle dropdownMenuButton" type="button" id="routeSelectorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Select a route
                             </button>
                             <div class="dropdown-menu pre-scrollable" id="routeSelector" aria-labelledby="dropdownMenuButton">
@@ -38,6 +38,12 @@
                                 {% endif %}
                             </div>
                     </div>
+                    <div>
+                        <button class="btn btn-secondary dropdown-toggle dropdownMenuButton" disabled type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select a direction
+                        </button>
+                    </div>
+
                     {% if selected_route %}
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="tripsMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

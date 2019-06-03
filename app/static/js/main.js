@@ -3,7 +3,7 @@ $(document).ready(function () {
 });
 
 function changeRoute () {
-    $('#dropdownMenuButton').text($(this).text());
+    $('#routeSelectorButton').text($(this).text());
 
     var url = "/routes/"
     var routeId = $(this).data("route-id");
