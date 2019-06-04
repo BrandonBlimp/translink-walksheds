@@ -66,23 +66,26 @@ function selectDestination () {
 }
 
 function drawShapes (shapes) {
+    if (selectedRoute) {
+        clearMapRoute();
+    }
     var coords = shapes.map(function (x) {
         return {
             lat: parseFloat(x["shape_pt_lat"]),
             lng: parseFloat(x["shape_pt_lon"])};
     });
     
-    var routeDestinationLine = new google.maps.Polyline({
+    selectedRoute = new google.maps.Polyline({
         path: coords,
         geodesic: true,
         strokeColor: '#FF0000',
         strokeOpacity: 1.0,
         strokeWeight: 2
     });
-    routeDestinationLine.setMap(map);
-    // alert("halp");
+    selectedRoute.setMap(map);
 }
 
-function clearMap () {
-
+// clears the map of the route line
+function clearMapRoute () {
+    selectedRoute.setMap(null);
 }
