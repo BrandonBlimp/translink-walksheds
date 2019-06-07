@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from app.models import Route, Trip, Shape
+from app.models import Route, Trip, Shape, StopTime, Stop
 
 
 class RouteSerializer(serializers.ModelSerializer):
@@ -40,4 +40,24 @@ class ShapeSerializer(serializers.ModelSerializer):
             'shape_pt_lon',
             'shape_pt_sequence',
             'shape_dist_traveled'
+        )
+
+class StopSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Stop
+        fields = (
+            'stop_id',
+            'stop_name',
+            'stop_lat',
+            'stop_lon'
+        )
+
+class StopTimeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StopTime
+        fields = (
+            'trip_id',
+            'stop_id',
+            'arrival_time',
+            'departure_time'
         )

@@ -1,16 +1,17 @@
 from django.shortcuts import render
 
-from app.models import Route, Shape, Trip
+from app.models import Route, Shape, Stop, StopTime, Trip
 from rest_framework import viewsets
 from rest_framework.decorators import list_route
 from rest_framework.response import Response
 
-from .serializers import RouteSerializer, ShapeSerializer, TripSerializer
+from .serializers import (RouteSerializer, ShapeSerializer, StopSerializer,
+                          StopTimeSerializer, TripSerializer)
 
 
 class RouteViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    API endpoint that allows routes to be viewed or edited.
+    API endpoint that allows routes to be viewed
     """
     queryset = Route.objects.order_by('route_short_name')
     serializer_class = RouteSerializer
@@ -19,7 +20,7 @@ class RouteViewSet(viewsets.ReadOnlyModelViewSet):
 
 class TripViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    API endpoint that allows trips to be viewed or edited.
+    API endpoint that allows trips to be viewed
     """
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
@@ -36,9 +37,25 @@ class TripViewSet(viewsets.ReadOnlyModelViewSet):
 
 class ShapeViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    API endpoint that allows trips to be viewed or edited.
+    API endpoint that allows trips to be viewed
     """
     queryset = Shape.objects.all().order_by("shape_pt_sequence")
     serializer_class = ShapeSerializer
     pagination_class = None
     filterset_fields = ('shape_id',)
+
+class StopViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows Stops to be viewed
+    """
+    queryset = Stop.objects.all()
+    serializer_class = StopSerializer
+    filterset_fields = ('stop_id',)
+
+class StopTimeViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows StopTimes to be viewed
+    """
+    queryset = StopTime.objects.all()
+    serializer_class = StopTimeSerializer
+    filterset_fields = ('trip_id',)

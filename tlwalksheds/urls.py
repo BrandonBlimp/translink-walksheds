@@ -22,6 +22,8 @@ router = routers.DefaultRouter()
 router.register(r'routes', views.RouteViewSet)
 router.register(r'trips', views.TripViewSet)
 router.register(r'shapes', views.ShapeViewSet)
+router.register(r'stops', views.StopViewSet)
+router.register(r'stoptimes', views.StopTimeViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
