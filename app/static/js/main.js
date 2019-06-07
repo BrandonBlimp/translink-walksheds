@@ -6,6 +6,11 @@ function selectRoute () {
     // change text displayed on dropdown button
     $('#routeSelectorButton').text($(this).text());
 
+    // resets destination selector
+    $('#destSelector').empty();
+    $('#destSelectorButton').text('Select a destination');
+    $('#destSelectorButton').prop('disabled', true);
+
     var url = "/trips/distinct_headsigns"
     var routeId = $(this).data("route-id");
 
@@ -34,7 +39,8 @@ function loadDestinations (response) {
     for (var i=0; i<len; i++) {
         var tripHeadsign = response[i]["trip_headsign"];
         var shapeID = response[i]["shape_id"];
-        $('#destSelector').append("<a class='dropdown-item' data-shape-id='" + shapeID + "' href='#'>" + tripHeadsign + "</a>");
+        var tripID = response[i]['trip_id'];
+        $('#destSelector').append("<a class='dropdown-item' data-shape-id='" + shapeID + "' data-trip-id='" + tripID + "' href='#'>" + tripHeadsign + "</a>");
     }
 
     // add onclick method to dropdown items
