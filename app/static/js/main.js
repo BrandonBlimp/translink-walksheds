@@ -17,6 +17,10 @@ function enableWalkshedsButton () {
     $('#toggleWalkshedsButton').prop('disabled', false);
 }
 
+function disableWalkshedsButton () {
+    $('#toggleWalkshedsButton').prop('disabled', true);
+}
+
 function selectRoute () {
     // change text displayed on dropdown button
     $('#routeSelectorButton').text($(this).text());
@@ -63,6 +67,7 @@ function addDestinations (response) {
 function selectDestination () {
     // change text displayed on dropdown button
     $('#destSelectorButton').text($(this).text());
+    clearStopsAndCircles();
 
     var shapeURL = "/shapes/";
     var shapeID = $(this).data("shape-id");
@@ -102,7 +107,7 @@ function selectDestination () {
 // TODO: would be better to do one API call (like /stops?stop_id=123&stop_id=425) to avoid
 // making so many ajax calls.
 function loadStops (stopTimes) {
-    var stopsURL = "/stops";
+    var stopsURL = "/stops/";
     var stopID;
     var stopTime;
 
@@ -141,14 +146,14 @@ function loadStops (stopTimes) {
 }
 
 function toggleWalksheds () {
-    if (walkshedsDisplayed) {
+    if (walkshedCircles && walkshedCircles.length == 0) {
         for (var i=0; i < stops.length; i++) {
             var walkshedCircle = new google.maps.Circle({
                 strokeColor: '#FF0000',
                 strokeOpacity: 0.8,
                 strokeWeight: 2,
                 fillColor: '#FF0000',
-                fillOpacity: 0.35,
+                fillOpacity: 0.20,
                 center: stops[i].latlng,
                 radius: 800,
             });
@@ -181,4 +186,13 @@ function drawShapes (shapes) {
 // clears the map of the route line
 function clearMapRoute () {
     selectedRoute.setMap(null);
+}
+
+function clearStopsAndCircles () {
+    stops = [];
+    for (var i=0; i < walkshedCircles.length; i++) {
+        walkshedCircles[i].setMap(null);
+    }
+    walkshedCircles = [];
+    disableWalkshedsButton();
 }
