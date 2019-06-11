@@ -27,12 +27,6 @@ function selectRoute () {
         },
         dataType: "json",
         context: this,
-        success: function (response) {
-            loadDestinations(response);
-        },
-        error: function () {
-            alert("oops");
-        }
     }).done(function (response) {
         loadDestinations(response);
     }).fail(function () {
