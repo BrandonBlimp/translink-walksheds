@@ -68,6 +68,7 @@ function selectDestination () {
     // change text displayed on dropdown button
     $('#destSelectorButton').text($(this).text());
     clearStopsAndCircles();
+    disableWalkshedsButton();
 
     var shapeURL = "/shapes/";
     var shapeID = $(this).data("shape-id");
@@ -160,6 +161,8 @@ function toggleWalksheds () {
             walkshedCircle.setMap(map);
             walkshedCircles.push(walkshedCircle);
         }
+    } else {
+        clearWalkshedCircles();
     }
 }
 
@@ -188,11 +191,15 @@ function clearMapRoute () {
     selectedRoute.setMap(null);
 }
 
+
 function clearStopsAndCircles () {
     stops = [];
+    clearWalkshedCircles();
+}
+
+function clearWalkshedCircles () {
     for (var i=0; i < walkshedCircles.length; i++) {
         walkshedCircles[i].setMap(null);
     }
     walkshedCircles = [];
-    disableWalkshedsButton();
 }
