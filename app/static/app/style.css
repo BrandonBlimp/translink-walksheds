@@ -21,6 +21,21 @@
     width: 100%;
 }
 
+.btn-primary {
+    background-color: #268efd;
+    border-color: #268efd;
+}
+
+.btn-primary:hover {
+    background-color: #257edf;
+    border-color: #257edf;
+}
+
+.btn-primary:disabled {
+    background-color: #57a8ff;
+    border-color: #57a8ff;
+}
+
 .container {
     padding-top: 1em;
 }
