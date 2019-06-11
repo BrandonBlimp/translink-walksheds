@@ -35,7 +35,7 @@
                         </button>
                         <div class="dropdown-menu pre-scrollable" id="destSelector" aria-labelledby="dropdownMenuButton"></div>
                     </div>
-                    <button class="btn btn-secondary" type="button" id="toggleWalkshedsButton">Display walksheds on map</button>
+                    <button class="btn btn-secondary" type="button" id="toggleWalkshedsButton" disabled >Display walksheds on map</button>
                 </div>
             </div>
         </div>
@@ -43,6 +43,8 @@
         <script>
             var map;
             var selectedRoute;
+            var stops = [];
+            var walkshedCircles = [];
             var walkshedsDisplayed = true;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {

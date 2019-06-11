@@ -50,6 +50,7 @@ class StopViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Stop.objects.all()
     serializer_class = StopSerializer
+    pagination_class = None
     filterset_fields = ('stop_id',)
 
 class StopTimeViewSet(viewsets.ReadOnlyModelViewSet):
@@ -58,4 +59,5 @@ class StopTimeViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = StopTime.objects.all()
     serializer_class = StopTimeSerializer
+    pagination_class = None
     filterset_fields = ('trip_id',)
