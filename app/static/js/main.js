@@ -1,6 +1,11 @@
 $(document).ready(function () {
     $('#routeSelector .dropdown-item').click(selectRoute);
+    $('#toggleWalkshedsButton').click(toggleWalksheds);
 });
+
+function toggleWalksheds () {
+    
+}
 
 function selectRoute () {
     // change text displayed on dropdown button
@@ -28,6 +33,10 @@ function selectRoute () {
         error: function () {
             alert("oops");
         }
+    }).done(function (response) {
+        loadDestinations(response);
+    }).fail(function () {
+        alert("Failed to load routes");
     });
 }
 
@@ -62,12 +71,10 @@ function selectDestination () {
         },
         dataType: "json",
         context: this,
-        success: function (response) {
-            drawShapes(response);
-        },
-        error: function () {
-            alert("oops");
-        }
+    }).done(function (response) {
+        drawShapes(response);
+    }).fail(function () {
+        alert("Failed to load trips");
     });
 }
 
