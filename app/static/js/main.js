@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('#routeSelector .dropdown-item').click(selectRoute);
     $('#toggleWalkshedsButton').click(toggleWalksheds);
+    $('#radiusControlRange').on('input', updateWalkshedRadius);
 });
 
 class Stop {
@@ -10,6 +11,17 @@ class Stop {
         this.lon = parseFloat(lon);
         this.name = name;
         this.latlng = {'lat':parseFloat(lat), 'lng':parseFloat(lon)};
+    }
+}
+
+function updateWalkshedRadius (input) {
+    var newRadius = input.target.value;
+    $('#radiusText').text(newRadius);
+
+    if (walkshedCircles && walkshedCircles.length) {
+        for (var i=0; i < walkshedCircles.length; i++) {
+            walkshedCircles[i].setRadius(parseFloat(newRadius));
+        }
     }
 }
 
