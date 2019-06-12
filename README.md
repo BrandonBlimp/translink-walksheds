@@ -18,3 +18,10 @@ to start the dev server, run:
 ```shell
 python manage.py runserver
 ```
+
+![Screenshot 1](screenshots/screen1.png?raw=true "Optional Title")
+![Screenshot 1](screenshots/screen2.png?raw=true "Optional Title")
+![Screenshot 1](screenshots/screen3.png?raw=true "Optional Title")
+![Screenshot 1](screenshots/screen4.png?raw=true "Optional Title")
+![Screenshot 1](screenshots/screen5.png?raw=true "Optional Title")
+![Screenshot 1](screenshots/screen6.png?raw=true "Optional Title")
