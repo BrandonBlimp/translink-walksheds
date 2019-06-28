@@ -1,6 +1,6 @@
 # translink-walksheds
 
-An application that allows you to visualize areas within walking distance of public transit stops in Greater Vancouver.
+An application that allows you to visualize areas within walking distance of public transit stops in Greater Vancouver. I'm currently working on ways to make the walking area accurate; it currently shows reachable areas as the bird flies, but people obviously don't fly. They walk on roads and pathways.
 
 First, install pipenv
 
